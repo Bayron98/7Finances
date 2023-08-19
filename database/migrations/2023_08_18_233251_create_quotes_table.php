@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('num_devis');
             $table->string('num_bc');
-            $table->date('date_facture');
-            $table->date('date_echeance');
+            $table->date('date_devis');
+            $table->date('date_validite');
             $table->decimal('remise', 10, 2);
             $table->text('note_publique');
             $table->text('note_personnelle');
