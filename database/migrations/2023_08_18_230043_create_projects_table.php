@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nom');
             $table->string('date_echeance');
-            $table->string('note');
+            $table->string('note')->nullable();
             $table->foreignId('client_id')->constrained();
             $table->timestamps();
         });

@@ -18,9 +18,9 @@ return new class extends Migration
             $table->date('date');
             $table->text('note');
             $table->boolean('payed');
-            $table->foreignId('vendor_id')->constrained();
-            $table->foreignId('client_id')->constrained();
-            $table->foreignId('project_id')->constrained();
+            $table->foreignId('vendor_id')->constrained()->nullable();
+            $table->foreignId('client_id')->constrained()->nullable();
+            $table->foreignId('project_id')->constrained()->nullable();
             $table->timestamps();
         });
     }

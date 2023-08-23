@@ -16,8 +16,8 @@ return new class extends Migration
             $table->decimal('montant', 10, 2);
             $table->date('date');
             $table->string('type');
-            $table->string('ref_transaction');
-            $table->string('note');
+            $table->string('ref_transaction')->nullable();
+            $table->string('note')->nullable();
             $table->foreignId('client_id')->constrained();
             $table->foreignId('invoice_id')->constrained();
             $table->timestamps();

@@ -18,10 +18,10 @@ return new class extends Migration
             $table->date('date_devis');
             $table->date('date_validite');
             $table->decimal('remise', 10, 2);
-            $table->text('note_publique');
-            $table->text('note_personnelle');
-            $table->text('conditions');
-            $table->text('pied_page');
+            $table->text('note_publique')->nullable();
+            $table->text('note_personnelle')->nullable();
+            $table->text('conditions')->nullable();
+            $table->text('pied_page')->nullable();
             $table->decimal('tva', 5, 2);
             $table->foreignId('client_id')->constrained();
             $table->foreignId('project_id')->constrained();
