@@ -19,14 +19,19 @@
         <form class="form-container" action="{{ route('authenticate') }}" method="post">
             @csrf
             <label for="email">Adresse Email</label>
-            <input type="email" name="email" id="email" value="{{ old('email') }}">
+            <input type="email" name="email" id="email" required value="{{ old('email') }}">
             @error('email')
-                <div class="error">{{ $message }}</div>
+                <div class="error">{{ $message }}
+                    <span class="error-icon">&times;</span>
+                </div>
             @enderror
             <label for="password">Mot de passe</label>
-            <input type="password" name="password" id="password" value="{{ old('password') }}">
-            @error('ids')
-                <div class="error">{{ $message }}</div>
+            <input type="password" name="password" required id="password">
+            @error('password')
+                <div class="error">{{ $message }}
+                    <span class="error-icon">&times;</span>
+            
+                </div>
             @enderror
             <input type="submit" value="Se connecter">
         </form>
