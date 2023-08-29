@@ -33,25 +33,27 @@ Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('aut
 //home routes
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
-//clients routes
-Route::resource('clients', ClientController::class);
-//projects routes
-Route::resource('projects', ProjectController::class);
-//invoices routes
-Route::resource('invoices', InvoiceController::class);
-//quotes routes
-Route::resource('quotes', QuoteController::class);
-//payments routes
-Route::resource('payments', PaymentController::class);
+Route::middleware('auth')->group(function () {
+    //clients routes
+    Route::resource('clients', ClientController::class);
+    //projects routes
+    Route::resource('projects', ProjectController::class);
+    //invoices routes
+    Route::resource('invoices', InvoiceController::class);
+    //quotes routes
+    Route::resource('quotes', QuoteController::class);
+    //payments routes
+    Route::resource('payments', PaymentController::class);
 
-//vendors routes
-Route::resource('vendors', VendorController::class);
-//expenses routes
-Route::resource('expenses', ExpenseController::class);
+    //vendors routes
+    Route::resource('vendors', VendorController::class);
+    //expenses routes
+    Route::resource('expenses', ExpenseController::class);
+});
 
 
 //admin routes
-Route::prefix('admin')->middleware('auth')->group(function(){
+Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('users', UserController::class);
 
     Route::get('/profile', [AdminController::class, 'profile'])->name('admin.profile');
