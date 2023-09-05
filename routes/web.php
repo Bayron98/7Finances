@@ -29,11 +29,21 @@ Route::redirect('/', '/dashboard');
 //authentification routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //home routes
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
 Route::middleware('auth')->group(function () {
+    Route::resourceParameters(
+        ['clients' => 'id'],
+        ['projects' => 'id'],
+        ['invoices' => 'id'],
+        ['quotes' => 'id'],
+        ['payments' => 'id'],
+        ['vendors' => 'id'],
+        ['expenses' => 'id'],
+    );
     //clients routes
     Route::resource('clients', ClientController::class);
     //projects routes

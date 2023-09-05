@@ -2,7 +2,7 @@
     <nav class="navigation-links">
    
         <div>
-            <p class="small text-muted">
+            <p class="small text-muted pagination-info">
                 {!! __('Affichage des résultats de') !!}
                 <span class="fw-semibold">{{ $paginator->firstItem() }}</span>
                 {!! __('à') !!}

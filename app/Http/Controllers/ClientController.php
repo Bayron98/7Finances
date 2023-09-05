@@ -12,7 +12,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::paginate(5);
+        $clients = Client::paginate(6);
         return view('clients.index', ['clients'=>$clients]);
     }
 
@@ -21,7 +21,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('clients.create');
     }
 
     /**
@@ -29,7 +29,22 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $messages = [
+            'required' => 'Ce champ est requis. Veuillez le remplir.',
+        ];
+
+        $validatedData = $request->validate([
+            'nom' => 'required',
+            'ice' => 'required',
+            'adresse' => 'required',
+            'ville' => 'required',
+            'email' => 'required',
+            'telephone' => 'required'
+        ], $messages);
+
+        Client::create($validatedData);
+        
+        return redirect()->route('clients.index');
     }
 
     /**
@@ -37,7 +52,8 @@ class ClientController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $client = Client::find($id);
+        return view('clients.show', ['client'=>$client]);
     }
 
     /**
@@ -45,7 +61,9 @@ class ClientController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $client  = Client::find($id);
+        return view('clients.edit', ['client'=>$client]);
+
     }
 
     /**
@@ -53,7 +71,23 @@ class ClientController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $messages = [
+            'required' => 'Ce champ est requis. Veuillez le remplir.',
+        ];
+
+        $validatedData = $request->validate([
+            'nom' => 'required',
+            'ice' => 'required',
+            'adresse' => 'required',
+            'ville' => 'required',
+            'email' => 'required',
+            'telephone' => 'required'
+        ], $messages);
+
+        $client = Client::find($id);
+        $client->update($validatedData);
+        
+        return redirect()->route('clients.index');
     }
 
     /**
@@ -61,6 +95,7 @@ class ClientController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Client::find($id)->delete();
+        return redirect()->route('clients.index')->with('page','3');
     }
 }

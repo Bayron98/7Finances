@@ -1,0 +1,125 @@
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.topbar-right-container {
+    display: flex;
+    align-items: space-around;
+}
+
+.submit-button,
+.back-button {
+    text-decoration: none;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    color: white;
+    padding: 9px;
+    margin: 10px 10px;
+    /* width: 150px; */
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+.back-button {
+    background-color: #ffffff;
+    color: #333333;
+}
+
+.a-back{
+    text-decoration: none;
+}
+
+.back-button:hover {
+    background-color:  #e0e0e0;
+}
+.submit-button {
+    background-color: #22C55E;
+}
+
+.submit-button:hover {
+    background-color: #1E9959;
+}
+
+/* .create-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+.form-section{
+   display: flex;
+   justify-content: space-between; 
+}
+
+
+.error{
+    padding: 2px;
+    color: #b91c1c;
+    background-color: #ecd1d1;
+    width: 100%;
+    /* padding: 10px; */
+    margin-bottom: 16px;
+    border-radius: 4px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0px;
+    font-weight: 600;
+
+}
+
+.error-icon {
+    margin-left: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
+.create-form, .edit-form{
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    background-color: #f3f3f3;
+    padding: 50px;
+    margin: 0 100px;
+    border: solid 3px #f7b851;
+    border-radius: 25px;
+    width: 60%;
+}
+
+.label-field {
+    display: flex;
+    /* align-self: flex-start; */
+    margin-bottom: 6px;
+    color: #5b256f;
+    font-weight: bold;
+    width: 60%;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 4px;
+    font-size: 16px;
+    /* box-shadow: 0px 9px 30px -5px rgba(129, 129, 129, 0.5); */
+}
+
+@media (max-width: 900px) {
+    .form-section{
+        flex-direction: column;
+    }
+}

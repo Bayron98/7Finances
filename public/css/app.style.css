@@ -2,40 +2,90 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     display: flex;
     flex-direction: row;
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    min-width: 100vw;
     margin: 0;
+    padding: 0;
     overflow: hidden;
 }
-.container{
-    background-color: white;
+
+* {
+    box-sizing: border-box;
 }
 
-a{
+.container {
+    background-color: white;
+    /* margin-left: 220px; */
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+}
+
+a {
     display: block;
 }
 
-.topbar{
-    position: fixed;
-    top:0;
+.topbar {
+    position: sticky;
+    top: 0;
     width: 100%;
-    height: 5%;
+    height: 50px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     background-color: black;
     color: white;
     padding: 15px 20px;
 
 }
-.topbar-title{
-    font-family: "Raleway",Sans-serif;
+
+.topbar-left-container{
+    display: flex;
+    align-items: center;
+
+}
+
+.topbar-right-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    /* width: 100%; */
+    height: 100vh;
+    overflow: auto;
+    /* flex-grow: 1;
+    position: fixed;
+    top: 0;
+    left: 0; */
+}
+
+.content {
+    margin-top: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* height: 100vh; */
+    /* width: 100vw; */
+    /* height: 87%; */
+    /* position: fixed;
+    right: 0;*/
+    /* width: 100%;  */
+    /* overflow: hidden; */
+}
+
+.topbar-title {
+    font-family: "Raleway", Sans-serif;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 1.5px;
     font-size: 20px;
 }
-.navbar-open{
+
+.navbar-open {
     display: none;
     padding: 0px;
     color: #f7b851;
@@ -43,31 +93,29 @@ a{
     font-weight: 500;
     cursor: pointer;
 }
-.navbar-open:hover{
+
+.navbar-open:hover {
     color: white;
 }
-.navbar{
-    display: flex;
-    flex-direction: column;
-    background-color: black;
-}
 
-.open{
+
+.open {
     width: 220px;
-    min-width: 220px; 
-    max-width: 220px; 
+    min-width: 220px;
+    max-width: 220px;
 }
-.close{
+
+.close {
     width: 0px;
-    min-width: 0px; 
-    max-width: 0px; 
+    min-width: 0px;
+    max-width: 0px;
 }
 
 
-.navbar-item{
+.navbar-item {
     cursor: pointer;
     color: white;
-    font-family: "Raleway",Sans-serif;
+    font-family: "Raleway", Sans-serif;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -79,71 +127,82 @@ a{
 
 }
 
-.navbar-separator{
+.logout-button{
+    cursor: pointer;
+    color: white;
+    font-family: "Raleway", Sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    --base-font-size: 13px;
+    font-size: var(--base-font-size);
+    text-decoration: none;
+    margin: 12px 15px;
+    width: 180px;
+    border: none;
+    background-color: black;  
+}
+
+.navbar-separator {
     border-color: #f7b851;
     width: 180px;
 }
 
-i{
+i {
     margin-right: 10px;
 }
 
-.navbar-item:hover{
+.navbar-item:hover {
     --base-font-size: 13px;
-    font-size:  calc(var(--base-font-size) - 0.4px);
+    font-size: calc(var(--base-font-size) - 0.4px);
     color: #f7b851;
 }
 
 
 
-.navbar-close{
+.navbar-close {
     display: flex;
     align-items: center;
     margin-top: 30px;
     margin-bottom: 20px;
     justify-content: center;
 }
-.navbar-close > i{
+
+.navbar-close>i {
     margin-left: 10px;
     font-size: 20px;
 }
 
 
-.content{
-    margin-top: 80px;
-    margin-left: 10px;
-    height: 87%;
-    /* position: fixed;
-    right: 0;
-    width: 80%; */
-    /* overflow-x: scroll; */
-    overflow-y: scroll;
-
-}
 
 
-.navbar-text{
+.navbar-text {
     display: inline;
 
 }
-@media (max-width: 850px){
-    .open{
+
+@media (max-width: 900px) {
+    .open {
         width: 50px;
-        max-width: 50px; 
-        min-width: 50px; 
+        max-width: 50px;
+        min-width: 50px;
     }
-    .close{
+
+    .close {
         width: 0px;
-        min-width: 0px; 
-        max-width: 0px; 
+        min-width: 0px;
+        max-width: 0px;
     }
-    .navbar-text{
+
+    .navbar-text {
         display: none;
     }
-    .navbar-item{
+
+    .navbar-item {
         width: 20px;
     }
-    .navbar-separator{
+
+    .navbar-separator {
         width: 30px;
     }
 }

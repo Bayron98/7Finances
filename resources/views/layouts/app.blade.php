@@ -27,13 +27,22 @@
             <a class="navbar-item" href="{{route('payments.index')}}"><i class="fa-solid fa-money-check-dollar"></i><span class="navbar-text">Paiements</span></a>
             <a class="navbar-item" href="{{route('vendors.index')}}"><i class="fa-solid fa-truck"></i><span class="navbar-text">Fournisseurs</span></a>
             <a class="navbar-item" href="{{route('expenses.index')}}"><i class="fa-solid fa-receipt"></i><span class="navbar-text">Dépenses</span></a>
+            <form name="logout" method="post" action="{{route('logout')}}">
+                @csrf
+                <div class="navbar-item logout-button" type="submit"><i class="fa-solid fa-right-from-bracket"></i><span class="navbar-text">Se déconnecter</span></div>
+            </form>
         </div>
     @show
 
     <div class="container">
         <div class="topbar">
-            <div class="navbar-open">&#9776;</div>
-            <div class="topbar-title">@yield('title')</div>
+            <div class="topbar-left-container">
+                <div class="navbar-open">&#9776;</div>
+                <div class="topbar-title">@yield('title')</div>
+            </div>
+            <div class="topbar-right-container">
+                @yield('topbar-right-container')
+            </div>
         </div>
         <div class="content">
             @yield('content')

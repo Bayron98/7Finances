@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
     navbarOpen.addEventListener('click', openNav);
     navbarClose.addEventListener('click', closeNav);
 
+    document.querySelector('.logout-button').onclick= () => {document.forms.logout.submit();};
+
 });
 
 
