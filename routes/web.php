@@ -63,10 +63,15 @@ Route::middleware('auth')->group(function () {
 
 
 //admin routes
-Route::prefix('admin')->middleware('auth')->group(function () {
+Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::resource('users', UserController::class);
 
-    Route::get('/profile', [AdminController::class, 'profile'])->name('admin.profile');
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/edit', [AdminController::class, 'edit'])->name('admin.edit');
     Route::put('/', [AdminController::class, 'update'])->name('admin.update');
+});
+
+// user profile (read only)
+Route::prefix('user')->group(function(){
+    Route::get('/profile', function(){return view('user.show');})->name('user.profile');
 });

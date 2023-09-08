@@ -4,6 +4,7 @@
 
 ![Login screen](/screenshots/login.jpeg)
 ![Clients page](/screenshots/clients.jpeg)
+![Admin page](/screenshots/admin.jpeg)
 
 ## Description
 

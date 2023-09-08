@@ -1,0 +1,65 @@
+.btn-back, .btn-users, .btn-admin{
+    cursor: pointer;
+    border: none;
+    margin-left: 10px;
+    padding: 9px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.btn-back{
+    background-color: white;
+    color: #333333;
+}
+.btn-back:hover{
+    background-color:  #e0e0e0;
+}
+.btn-users, .btn-admin{
+    background-color: #22C55E;
+    color: white;
+}
+.btn-users:hover, .btn-admin:hover{
+    background-color: #1E9959;
+}
+
+.infos-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.infos{
+    display: flex;
+    flex-direction: column;
+    background-color: #f3f3f3;
+    padding: 50px;
+    margin: 0 100px;
+    border: solid 3px #f7b851;
+    border-radius: 25px;
+    width: 40%;
+}
+
+.infos-section{
+    display: flex;
+    justify-content: space-between;
+}
+
+.data{
+    padding: 5px;
+    margin-bottom: 16px;
+    color: #333;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+@media (max-width: 900px) {
+    .infos-section{
+        flex-direction: column;
+    }
+}
+
+
+
+
+

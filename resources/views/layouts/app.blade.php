@@ -15,10 +15,14 @@
 </head>
 
 <body>
+    @php
+        $route=auth()->user()->is_admin?route('admin.index'):route('user.profile')
+    @endphp
     @section('navbar')
         <div class="navbar open">
             <div class="navbar-close navbar-item"><span class="navbar-text">Fermer</span> <i class="fa-solid fa-xmark"></i></div>
             <hr class="navbar-separator">
+            <a class="navbar-item" href="{{$route}}"><i class="fa-solid fa-user"></i><span class="navbar-text">{{auth()->user()->name}}</span></a>
             <a class="navbar-item" href="{{route('dashboard')}}"><i class="fa-solid fa-house"></i><span class="navbar-text">Tableau de bord</span></a>
             <a class="navbar-item" href="{{route('clients.index')}}"><i class="fa-solid fa-users"></i><span class="navbar-text">Clients</span></a>
             <a class="navbar-item" href="{{route('projects.index')}}"><i class="fa-solid fa-suitcase"></i><span class="navbar-text">Projets</span></a>
